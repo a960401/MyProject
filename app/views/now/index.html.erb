@@ -1,0 +1,58 @@
+
+<div class="user-box" style="max-width: 800px; margin-bottom: 100px">
+      <div class="top-line"></div>
+      <h3 style="text-align: center; margin: 50px 0 30px 0">NOW의 대여사업 페이지입니다</h3>
+      
+     
+      <div style="float: left">
+        <% @products.each do |p| %>
+          <div class="mypage-box" style="color:#fff; <%= p.category=='우산' ? "margin: 0 25px 25px 25px;" : "margin: 0 0px 25px 0;" %> 
+             padding: 35px 10px 10px 10px;  text-align:center">
+              <img src="<%= p.category=='우산' ? "/assets/umbrella.png" : "/assets/calculator.png" %>" width="60px" height="60px" />
+              <div style="width: 180px; border: 1px solid #fff;border-radius:25px; margin:auto; margin-top:10px; margin-bottom:10px"><h4><%=p.category%></h4></div>
+              <h3><p style="margin:0px; line-height:15px">총 <%=p.category%> 개수는 <%=p.total_amount%>개</p></h3><br>
+              <h3><p style="margin:0px; line-height:15px">현재 빌려간 <%=p.category%>
+               <%= p.category=='우산' ? "은" : "는" %>
+              </p></h3>
+              <h3><p style="margin:0px; line-height:15px"><%=p.lended_amount%>개 입니다</p></h3>
+          </div>
+          
+          <%if p.category!='우산'%>
+          <div class="clear"></div>
+          <% end %>
+         <%end%>
+         
+          <div class="mypage-box" style="margin: 0 25px 25px 25px; color:#fff ; padding: 35px 10px 10px 10px; text-align:center">
+              <img src="/assets/open-door-with-border.png" width="60px" height="60px" />
+              <div style="width: 180px; border: 1px solid #fff;border-radius:25px; margin:auto; margin-top:10px; margin-bottom:10px"><h4>대여 가능 시간</h4></div>
+              <h3><p style="margin:0px; line-height:15px">우정관 422호는</p></h3>
+              <h3><p style="margin:0px; line-height:15px">3, 5교시에 열려있습니다</p></p></h3>
+          </div>
+          <div class="mypage-box" style="margin: 0 0px 25px 0; color:#fff; padding: 35px 10px 10px 10px; text-align:center">
+              <img src="/assets/settings.png" width="60px" height="60px" />
+              <div style="width: 180px; border: 1px solid #fff;border-radius:25px; margin:auto; margin-top:10px; margin-bottom:10px">
+                
+                
+                <% if user_signed_in? %>
+                    <h4><a href="/users/sign_out" style="color: #fff">관리자 로그아웃</a></h4>
+                <%else%>
+                    <h4><a href="/users/sign_in" style="color: #fff">관리자 로그인</a></h4>
+                <% end %>
+                
+                
+              </div>
+              
+              <h3><p style="margin:0px; line-height:15px">관리자가 사용하는</p></h3>
+              <h3><p style="margin:0px; line-height:15px">수량 조정 페이지입니다</p></h3>
+          </div>
+      </div>
+      
+      <div class="clear"></div>
+      
+       
+        <% if user_signed_in? %>
+            <a href="/admin/index">관리자 설정</a>
+        <% end %>
+</div>
+ 
+     
