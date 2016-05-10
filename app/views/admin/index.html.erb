@@ -1,32 +1,37 @@
-<h1>관리자페이지입니다</h1>
-<form action="/admin/update_info">
-    <p>우산 총 개수: </p>
-    <input type="number" name="total_num" value="<%=@products.total_amount%>" />
-    <p>우산 대여 개수: </p>
-    <input type="number" name="lended_num" value="<%=@products.lended_amount%>" />
-    <input type="submit" value="확인" />
-    <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
-</form>
+<div class="user-box" style="max-width: 800px; margin-bottom: 100px">
+      <div class="top-line"></div>
+        
+        <form action="/admin/update_info">
+          <div class="form-group">
+            <br><br>
+            <label for="all_umbrella">우산 총 개수</label>
+            <input type="number" name="total_num" value="<%=@products.total_amount%>" class="form-control" id="all_umbrella"/>
+          </div>
+          
+          <div class="form-group">
+            <label for="lended_umbrella">우산 대여 개수</label>
+            <input type="number" name="lended_num" value="<%=@products.lended_amount%>" class="form-control" id="lended_umbrella"/>
+          </div>
+          
+          
+          <button type="submit" class="btn btn-default">확인</button>
+        </form><br>
+       
+       <form action="/admin/update_info">
+          <div class="form-group">
+            <br><br>
+            <label for="all_calculator">재무계산기 총 개수</label>
+            <input type="number" name="total_num_2" value="<%=@products2.total_amount%>" class="form-control" id="all_calculator"/>
+          </div>
+          
+          <div class="form-group">
+            <label for="lended_calculator">재무계산기 대여 개수</label>
+            <input type="number" name="lended_num_2" value="<%=@products2.lended_amount%>" class="form-control" id="lended_calculator"/>
+          </div>
+          <button type="submit" class="btn btn-default">확인</button>
+          <a href="/" class="btn btn-default">홈으로 가기</a>
+        </form>
+</div>
 
-<form action="/admin/update_info_2">
-    <p>재무계산기 총 개수: </p>
-    <input type="number" name="total_num_2" value="<%=@products2.total_amount%>" />
-    <p>재무계산기 대여 개수: </p>
-    <input type="number" name="lended_num_2" value="<%=@products2.lended_amount%>" />
-    <input type="submit" value="확인" />
-    <p>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ</p>
-</form>
 
-<h3>추가하기</h3>
-<form action="/admin/new_info">
-    <p>제품명: </p>
-    <input type="text" name="category" />
-    <p>총 개수: </p>
-    <input type="number" name="new_total_num" value="0" />
-    <p>대여 개수: </p>
-    <input type="number" name="new_lended_num" value="0" />
-    <input type="submit" value="확인" />
-    
-</form>
 
-<a href="/" class="btn btn-default">홈으로 가기</a>
