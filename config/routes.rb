@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'attend/result'
+
+  get 'attend/check'
+
+  get 'attend/ranking'
+
   get 'admin/index'
 
   root "now#index"
