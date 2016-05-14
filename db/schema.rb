@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20160511082631) do
 
   create_table "attendances", force: :cascade do |t|
-    t.string   "round_id"
-    t.string   "member_id"
+    t.integer  "round_id"
+    t.integer  "member_id"
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

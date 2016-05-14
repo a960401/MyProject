@@ -1,2 +1,48 @@
-<h1>Attend#result</h1>
-<p>Find me in app/views/attend/result.html.erb</p>
+<div class="user-box">
+<div class="top-line"></div>
+<div style="text-align: center;">
+  <h3>학생 별 출결 현황</h3>
+ 
+  <table class="table table-bordered">
+    <tbody>
+    <tr>
+      <th>이름</th>
+      <th>참석</th>
+      <th>지각</th>
+      <th>결석</th>
+      <% Round.all.each do |r|%>
+      <th>
+          <%=r.month%>월 <%=r.week%>주
+      </th>
+      <% end %>
+    </tr>
+    <% Member.all.each do |m|%>
+    <tr>
+        <td><%=m.name%></td>
+        <td><%=m.attendances.where(status: "1").count%></td>
+        <td><%=m.attendances.where(status: "2").count%></td>
+        <td><%=m.attendances.where(status: "3").count%></td>
+        <% Round.all.each do |r|%>
+        
+          <% a=Attendance.where(round_id: r.id, member_id: m.id).first %>
+          <%unless a.nil? %>
+            <% if a.status == "1"%>
+              <td class="second">참석</td>
+            <% elsif a.status == "2"%>
+              <td class='third'>지각</td>
+            <% elsif a.status == "3"%>
+              <td class="fourth">결석</td>
+            <% else %>
+              <td class="first">미정</td>
+            <% end %>
+          <%else%>
+           <td class="first">미정</td>
+          <%end%>
+       <% end %>
+    </tr>
+   <% end %>     
+  </tbody>
+  </table>
+</div>
+
+</div>

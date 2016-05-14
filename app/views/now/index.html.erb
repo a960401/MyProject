@@ -6,7 +6,7 @@
      
       <div style="float: left">
         <% @products.each do |p| %>
-          <div class="mypage-box" style="color:#fff; <%= p.category=='우산' ? "margin: 0 25px 25px 25px;" : "margin: 0 0px 25px 0;" %> 
+          <div class="my-box" style="color:#fff; <%= p.category=='우산' ? "margin: 0 25px 25px 25px;" : "margin: 0 0px 25px 0;" %> 
              padding: 35px 10px 10px 10px;  text-align:center">
               <img src="<%= p.category=='우산' ? "/assets/umbrella.png" : "/assets/calculator.png" %>" width="60px" height="60px" />
               <div style="width: 180px; border: 1px solid #fff;border-radius:25px; margin:auto; margin-top:10px; margin-bottom:10px"><h4><%=p.category%></h4></div>
@@ -22,13 +22,13 @@
           <% end %>
          <%end%>
          
-          <div class="mypage-box" style="margin: 0 25px 25px 25px; color:#fff ; padding: 35px 10px 10px 10px; text-align:center">
+          <div class="my-box" style="margin: 0 25px 25px 25px; color:#fff ; padding: 35px 10px 10px 10px; text-align:center">
               <img src="/assets/open-door-with-border.png" width="60px" height="60px" />
               <div style="width: 180px; border: 1px solid #fff;border-radius:25px; margin:auto; margin-top:10px; margin-bottom:10px"><h4>대여 가능 시간</h4></div>
               <h3><p style="margin:0px; line-height:15px">우정관 422호는</p></h3>
-              <h3><p style="margin:0px; line-height:15px">3, 5교시에 열려있습니다</p></p></h3>
+              <h3><p style="margin:0px; line-height:15px">3, 5교시에 열려있습니다</p></h3>
           </div>
-          <div class="mypage-box" style="margin: 0 0px 25px 0; color:#fff; padding: 35px 10px 10px 10px; text-align:center">
+          <div class="my-box" style="margin: 0 0px 25px 0; color:#fff; padding: 35px 10px 10px 10px; text-align:center">
               <img src="/assets/settings.png" width="60px" height="60px" />
               <div style="width: 180px; border: 1px solid #fff;border-radius:25px; margin:auto; margin-top:10px; margin-bottom:10px">
                 

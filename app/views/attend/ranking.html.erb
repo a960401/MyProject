@@ -1,2 +1,41 @@
-<h1>Attend#ranking</h1>
-<p>Find me in app/views/attend/ranking.html.erb</p>
+<% b=Array.new%>
+<% for i in (1..3) %>
+    <% a=Array.new%>
+    <% Member.all.each do |m|%> 
+            <%a.append(m.attendances.where(status: i.to_s).count)%>
+    <% end %>
+    <% b.append(a.max) %>    
+<% end %>
+
+
+<% for i in (1..3) %>
+<div class="center" style="margin-bottom: 100px;">
+    <div class="user-box" style="width:200px; float: left;margin-right: 50px">
+        <div class="top-line"></div>
+            <div style="margin-top: 20px">
+            <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <% if i==1 %> 
+                    <th>출석왕</th>
+                    <% elsif i==2 %>
+                    <th>지각왕</th>
+                    <% else %>
+                    <th>결석왕</th>
+                    <% end %>
+                </tr>
+            <% Member.all.each do |m|%>
+            <tr>
+                <% if b[i-1]==m.attendances.where(status: i.to_s).count%>
+                    <td><%= m.name %></td>
+                <% end %>
+            </tr>
+            <% end %>
+            </tbody>
+            </table>
+            </div>
+    </div>
+</div><br><br>
+<% end %>
+<br><br>
+

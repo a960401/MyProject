@@ -1,231 +1,220 @@
 
+<% Round.all.each do |r|%>
 <div class="user-box" style="max-width: 1200px; margin-bottom: 100px; ">
       <div class="top-line"></div>
+      <h1><%=r.month %>월 <%=r.week%>주차 출석표입니다</h1>
+      <!--경짱단-->
+       <div style="float: left; margin: 20px 20px 20px 20px">
+          <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              경짱단
+          </div>
+          
+          <% Member.where(category:'경짱단').each do |m| %>  
+          <div class="mypage-box <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style=" text-align:center; margin-right:20px;">
+              <%= m.name %>
+          </div>
+          <% end %>
+         
+      </div>
+      <div class="clear"></div>
       
       <!--복지-->
-      <div style="float: left; margin: 20px 20px 20px 20px">
-       
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+     
+      <div style="float: left; margin: 0px 20px 20px 20px">
+          <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              복지
           </div>
           
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+          <% Member.where(category:'복지').each do |m| %>  
+          <div class="mypage-box <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style=" text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
+              <% end %>
+         
       </div>
       <div class="clear"></div>
       
       <!--사무-->
       <div style="float: left; margin: 0px 20px 20px 20px">
+          <div class="mypage-box" style=" text-align:center; margin-right:20px;">
+              사무
+          </div>
        
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+          <% Member.where(category:'사무').each do |m| %>  
+          <div class="mypage-box <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
+      <!--홍소-->
       <div style="float: left; margin: 0px 20px 20px 20px">
-       
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+           <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              홍소
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+          <% Member.where(category:'홍소').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
-      <div style="float: left; margin: 0px 20px 20px 20px">
-       
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+      <!--문체-->
+     <div style="float: left; margin: 0px 20px 20px 20px">
+           
+          <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              문체
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+          <% Member.where(category:'문체').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
-      <div style="float: left; margin: 0px 20px 20px 20px">
-       
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+      <!--에이섹-->
+     <div style="float: left; margin: 0px 20px 20px 20px">
+           
+           <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              A섹션
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+          <% Member.where(category:'A섹션').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
+      
+      <!--비섹-->
       <div style="float: left; margin: 0px 20px 20px 20px">
-       
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+           
+           <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              B섹션
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+           
+          <% Member.where(category:'B섹션').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
-      <div style="float: left; margin: 0px 20px 20px 20px">
+      
+      <!--시섹-->
+       <div style="float: left; margin: 0px 20px 20px 20px">
        
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+           <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              C섹션
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+          <% Member.where(category:'C섹션').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
-      <div style="float: left; margin: 0px 20px 20px 20px">
-       
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
+      
+      <!--디섹-->
+       <div style="float: left; margin: 0px 20px 20px 20px">
+            
+          <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              D섹션
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
+          <% Member.where(category:'D섹션').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px;">
+              <%= m.name %>
           </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
+              <% end %>
           
       </div>
       <div class="clear"></div>
       
-      <div style="float: left; margin: 0px 20px 20px 20px">
+      <!--이섹-->
+       <div style="float: left; margin: 0px 20px 20px 20px">
+          
+          <div class="mypage-box" style="text-align:center; margin-right:20px;">
+              E섹션
+          </div>
+          <% Member.where(category:'E섹션').each do |m| %>  
+          <div class="mypage-box  <%=check_status(m.id,r.id)%>" onclick="transfer(this,<%=m.id%>,<%=r.id%>);" style="text-align:center; margin-right:20px; margin-bottom:50px;">
+              <%= m.name %>
+          </div>
+              <% end %>
+              
+       <div class="float: left">
+          <div class="sm-box" style="background: #A4C7EA "></div>
+          <span style="float: left">미정</span>
+          <div class="sm-box" style="background: #29E329 "></div>
+          <span style="float: left">출석</span>
+          <div class="sm-box" style="background: #F3F31F "></div>
+          <span style="float: left">지각</span>
+          <div class="sm-box" style="background: #EB5B5B"></div>
+          <span style="float: left">결석</span>
+       </div> 
        
-          <div class="mypage-box" style="color:#fff;   text-align:center; margin-right:20px">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center;  margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
-          
-          <div class="mypage-box" style="color:#fff; text-align:center; margin-right:20px ">
-              
-          </div>
           
       </div>
       <div class="clear"></div>
+    
 </div>
+<% end %>
+
+
+<script>
+function transfer(obj, memberId, roundId){
+    var status="0";
+    
+    if( $(obj).hasClass("first") ) { /* attend */
+        $(obj).removeClass("first");
+        $(obj).addClass("second");
+        status="1";
+    } 
+    
+    else if ( $(obj).hasClass("second") ){ /* late */
+        $(obj).removeClass("second");
+        $(obj).addClass("third");
+        status="2";
+    
+    }
+    else if ( $(obj).hasClass("third") ){ /* abscent */
+        $(obj).removeClass("third");
+        $(obj).addClass("fourth");
+        status="3";
+    }
+    else if ( $(obj).hasClass("fourth") ){
+        $(obj).removeClass("fourth");
+        $(obj).addClass("first");
+    
+    }
+    
+    $.ajax({
+        url: "/attend/create_attend",
+        data: {
+            member: memberId,
+            round: roundId,
+            status: status
+        },
+        success: function(data){
+            
+        },
+        error: function(error){
+            
+        }
+    });
+    
+    
+}
+</script>

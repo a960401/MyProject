@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /************ user informations ***************/
+
+div.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
 div.user-box {
     position: relative;
     width: 100%; max-width: 500px;
@@ -11,7 +17,15 @@ div.user-box {
     border-radius: 20px;
     box-shadow: 2.5px 2.5px 5px #888;
 }
-
+div.my-box {
+    float:left;
+    width:330px;
+    background-color: #222A35; 
+    border-radius:25px;
+    color:#fff;
+    box-shadow: 3px 3px 8px #888;
+    height: 300px;
+}
 div.top-line {
     position: absolute;
     right:0; left:0; top:0;
@@ -33,4 +47,33 @@ div.mypage-box{
     border-radius:15px;
     color:#fff;
     height: 50px;
+    padding-top: 15px;
+    color:#000;
 }
+
+div.sm-box {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 2.5px;}
+    
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.first{
+    background-color: #A4C7EA !important;    
+}
+.second{
+    background-color: #29E329 !important;    
+}
+.third{
+    background-color: #F3F31F !important;    
+}
+.fourth{
+    background-color: #EB5B5B !important;    
+}
+
