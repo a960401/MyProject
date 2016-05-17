@@ -1,6 +1,6 @@
 
 <% Round.all.each do |r|%>
-<div class="user-box" style="max-width: 1200px; margin-bottom: 100px; ">
+<div class="user-box" style="max-width: 1200px; margin-bottom: 200px; ">
       <div class="top-line"></div>
       <h1><%=r.month %>월 <%=r.week%>주차 출석표입니다</h1>
       <!--경짱단-->
@@ -164,15 +164,21 @@
           <div class="sm-box" style="background: #EB5B5B"></div>
           <span style="float: left">결석</span>
        </div> 
-       
-       <div class="float: left">
-           <form action="/chanha/write" method="POST">
-               
+      
+      <%Round.all.each do |a|%>
+       <div style="float: right;">
+           <form action="/attend/delete/<%=a.id%>" method="POST">
+                  <input class="btn btn-default" type="submit" value="삭제" />
            </form>
-       </div>
-          
+       </div> 
+      <% end %>
+       
+       
       </div>
+      
+     
       <div class="clear"></div>
+      
     
 </div>
 <% end %>

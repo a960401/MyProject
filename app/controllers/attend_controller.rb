@@ -4,7 +4,6 @@ class AttendController < ApplicationController
   end
 
   def check
-   
   end
 
   def ranking
@@ -36,5 +35,11 @@ class AttendController < ApplicationController
       }
     end
 
+  end
+  
+  def delete
+     p=Round.find(params[:id])
+     p.destroy
+     redirect_to "/attend/check"
   end
 end
