@@ -165,13 +165,13 @@
           <span style="float: left">결석</span>
        </div> 
       
-      <%Round.all.each do |a|%>
+      
        <div style="float: right;">
-           <form action="/attend/delete/<%=a.id%>" method="POST">
+           <form action="/attend/delete/<%=r.id%>" method="POST">
                   <input class="btn btn-default" type="submit" value="삭제" />
            </form>
        </div> 
-      <% end %>
+      <
        
        
       </div>
